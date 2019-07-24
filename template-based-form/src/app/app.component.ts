@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
-import {NgForm} from '@angular/forms';
-
-import { FormGroup, FormBuilder } from  '@angular/forms';
+import {FormGroup, FormBuilder, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [ './app.component.css' ]
 })
-export class AppComponent {
-  private f: any;
+export class AppComponent  {
+
+  contactForm: FormGroup;
+  constructor(private formBuilder: FormBuilder) {
+    this.createContactForm();
+  }
+
+  createContactForm(){
+    this.contactForm = this.formBuilder.group({
+      fullName: [''],
+      email: [''],
+      message: ['']
+    });
+  }
 
   onSubmit(f: NgForm) {
-    console.log('Your form Data: ', this.f.value);
-    //  here, we can use it to send the data to a server via a POST request.
+    console.log('Your form data : ', this.contactForm.value );
   }
 }
-
