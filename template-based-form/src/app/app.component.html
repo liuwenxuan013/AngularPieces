@@ -1,0 +1,14 @@
+<h1> Template-Based Form </h1>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<!--  NgForm creates a top-level FormGroup instance and
+binds it to a form to track aggregate form
+value and validation status. This is done automatically
+when FormsModule is imported.-->
+  <input type="text" name="fullName" placeholder="Name" ngModule />
+  <br/>
+  <input type="email" name="email" placeholder="Email" ngModule />
+  <br/>
+  <textarea name="message" placeholder="Your Message"></textarea>
+  <br/>
+  <input type="submit" value="Send">
+</form>
